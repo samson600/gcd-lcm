@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body, p, h4{
+            margin: 0;
+            padding: 0;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        p, h4{
+            text-align: center;
+            color: #ccc;
+        }
+        h2{
+            background: rgb(26, 78, 248);
+            padding: 8px;
+            margin: 0;
+            color: white;
+        }
+        a{
+            text-decoration: none;
+            color: rgb(125, 166, 243);
+        }
+        .footer{
+            background: black;
+            padding: 5px;
+            position: absolute;
+            width: 100%;
+            bottom:0;
+        }
+        .container{
+           max-width: 375px;
+           height: 667px;
+           position: relative; 
+           right:0;
+           left:0;
+           margin:auto;
+           position: relative;
+           overflow: hidden;
+           background-color: #ccc;
+        }
+        .form{
+            padding:1px 15px;
+        }
+        .main-menu{
+            border:1px solid gray;
+            display:block;
+            overflow:hidden;
+            background-color:rgb(46, 177, 177);  
+        }
+        .btn-top{
+            margin: 2px 30px;
+            padding: 6px 30px;
+            background: rgb(99, 176, 248);
+            color: rgb(253, 250, 80);
+        }
+        .btn-ans{
+            background: rgb(22, 182, 83);
+            color: cornsilk;
+            padding: 4px 10px;
+            margin-right: 20px;
+        }
+        .adf{
+            width: 100%;
+            height: 30px;
+            display: block;
+            overflow:hidden;
+            position:relative; 
+        }
+        .btn-adf{
+            position: absolute;
+            padding: 0px 10px;
+            top:0;
+            bottom:0;
+            right:1%;
+        }
+        .btn:active{
+            background-color: rgb(17, 19, 19);
+            color: white;
+        }
+        input[type=number]{
+           max-width: 60px;
+           padding: 3px 5px;
+           margin: 8px 0;
+           display:inline-block;
+           border:1px solid #ccc;
+           border-radius: 4px;
+           box-sizing: border-box;
+           font-family: cursive;   
+        }
+        .gcd3 ,.lcm, .lcm3{
+            display:none;
+        }
+        </style>
+</head>
+<body>
+    <div class="container">
+        <h2>GCD/LCM CALCULATOE</h2>
+        <section class="main-menu">
+            <input type="button" value="GCD" style="float:left;"class="btn-top btn" onclick="showGcd();">
+            <input type="button" value="LCM"style="float:right;"class="btn-top btn" onclick="showLcm();">
+        </section>
+        <form action="" class="form">
+        <section class="gcd" id="gcd">
+            <div class="gcd2" id="gcd2">
+                <table>
+                    <h3><u>Greatest Common Divisor(GCD)</u></h3>
+                 <div class="adf"><input type="button" class="btn btn-adf" value="3 fields" onclick="showThreeFields();">
+                 </div>
+                    <tr >
+                        <td>Enter Numbers</td>
+                        <td>: <input type="number" id="gcd2first"></td>
+                        <td><input type="number" id="gcd2sec"></td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td><input type="button" class="btn btn-ans" value="GCD" onclick="gcd2();"></td>
+                        <td>: <span id="gcd2res"></span></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="gcd3" id="gcd3">
+                <table>
+                    <h3><u>Greatest Common Divisor(GCD)</u></h3>
+                    <div class="adf"><input type="button" class="btn btn-adf" value="2 fields" onclick="showTowFields();">
+                    <tr>
+                    </div>
+                        <td>Enter Numbers</td>
+                        <td>: <input type="number" id="gcd3first"></td>
+                        <td> <input type="number" id="gcd3sec"></td>
+                        <td> <input type="number" id="gcd3thr"></td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td><input type="button" class="btn btn-ans" value="GCD" onclick="gcd3();"></td>
+                        <td>: <span id="gcd3res"></span></td>
+                    </tr>
+                </table> 
+            </div>
+        </section>
+
+        <section class="lcm" id="lcm">
+            <div class="lcm2" id="lcm2">
+                <table>
+                    <h3><u>Lowest Common Mutiple(LCM)</u></h3>
+                 <div class="adf"><input type="button" class="btn btn-adf" value="3 fields" onclick="showThreeFieldsL();">
+                 </div>
+                    <tr >
+                        <td>Enter Numbers</td>
+                        <td>: <input type="number" id="lcm2first"></td>
+                        <td><input type="number" id="lcm2sec"></td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td><input type="button" class="btn btn-ans" value="LCM" onclick="lcm2();"></td>
+                        <td>: <span id="lcm2res"></span></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="lcm3" id="lcm3">
+                <table>
+                    <h3><u>Lowest Common Mutiple(LCM)</u></h3>
+                    <div class="adf"><input type="button" class="btn btn-adf" value="2 fields" onclick="showTowFieldsL();">
+                    <tr>
+                    </div>
+                        <td>Enter Numbers</td>
+                        <td>: <input type="number" id="lcm3first"></td>
+                        <td> <input type="number" id="lcm3sec"></td>
+                        <td> <input type="number" id="lcm3thr"></td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td><input type="button" class="btn btn-ans" value="LCM" onclick="lcm3();"></td>
+                        <td>: <span id="lcm3res"></span></td>
+                    </tr>
+                </table> 
+            </div>
+        </section>
+        </form>
+        <section class="footer">
+        <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | powered by CODE JAM</p>
+        <h4>Contact Us</h4>
+        <p><a href="https://www.facebook.com/Goodsellercom-103654734348319/">join us on facebook</a></p>
+         <p><a href="mailto:symonh11@yahoo.com ">feedback</a></p>
+        </section>
+    </div>
+
+    <script>
+//============================GCD/LCM==============================
+function showGcd(){
+    var gcdSec = document.getElementById("gcd");
+    var lcmSec = document.getElementById("lcm");
+    gcdSec.style.display="block";
+    lcmSec.style.display="none";
+}
+function showLcm(){
+    var gcdSec = document.getElementById("gcd");
+    var lcmSec = document.getElementById("lcm");
+    gcdSec.style.display="none";
+    lcmSec.style.display="block";
+}
+
+
+//===========================GCD START============================
+    //2 fields
+    function gcd2(){
+        var f = document.getElementById("gcd2first").value;
+        var s = document.getElementById("gcd2sec").value;
+
+        for(i=1; i<=f && i<=s;  i++){
+            if(f%i==0 && s%i==0){
+                gcd=i;
+            }
+        }
+       document.getElementById("gcd2res").innerHTML = gcd;
+    }
+
+    function showThreeFields(){
+        var field3 = document.getElementById("gcd2");
+        var field2 = document.getElementById("gcd3");
+        field3.style.display="none";
+        field2.style.display="block";
+    }
+    //3 fields
+    function gcd3(){
+        var f = document.getElementById("gcd3first").value;
+        var s = document.getElementById("gcd3sec").value;
+        var t = document.getElementById("gcd3thr").value;
+
+        for(i=1; i<=f && i<=s  && i<=t;  i++){
+            if(f%i==0 && s%i==0 && t%i==0){
+                gcd=i;
+            }
+        }
+       document.getElementById("gcd3res").innerHTML = gcd;
+    }
+    function showTowFields(){
+        var field3 = document.getElementById("gcd3");
+        var field2 = document.getElementById("gcd2");
+        field3.style.display="none";
+        field2.style.display="block";
+    }
+//===========================GCD START============================
+
+
+
+//===========================LCD START============================
+    //2 fields
+    function lcm2(){
+        var f = document.getElementById("lcm2first").value;
+        var s = document.getElementById("lcm2sec").value;
+
+        for(i=1; i<=f*s; i++){
+            if(i%f==0 && i%s==0){
+                lcm=i;
+                break;
+            }
+        }
+   document.getElementById("lcm2res").innerHTML = lcm;
+}
+
+function showThreeFieldsL(){
+    var field3 = document.getElementById("lcm2");
+    var field2 = document.getElementById("lcm3");
+    field3.style.display="none";
+    field2.style.display="block";
+}
+//3 fields
+    function lcm3(){
+        var f = document.getElementById("lcm3first").value;
+        var s = document.getElementById("lcm3sec").value;
+        var t = document.getElementById("lcm3thr").value;
+
+    for(i=1; i<=f*s*t; i++){
+        if(i%f==0 && i%s==0 && i%t==0){
+            lcm=i;
+            break;
+        }
+    }
+   document.getElementById("lcm3res").innerHTML = lcm;
+}
+    function showTowFieldsL(){
+        var field3 = document.getElementById("lcm3");
+        var field2 = document.getElementById("lcm2");
+        field3.style.display="none";
+        field2.style.display="block";
+}
+//===========================LCD START============================
+    </script>
+
+
+
+    <!-- <script>
+        var n = 11;
+        document.write(n.toString(2)+"<br>");
+        document.write(n.toString(8)+"<br>");
+        document.write(n.toString(16)+"<br>");
+    </script> -->
+</body>
+</html>
